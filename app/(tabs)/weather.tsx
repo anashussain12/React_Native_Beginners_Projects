@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 export default function WeatherApp() {
-  const [city, setCity] = useState("");// state for city input
+  const [city, setCity] = useState("");
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🌦️ Weather App</Text>
