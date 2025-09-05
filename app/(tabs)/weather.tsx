@@ -10,8 +10,6 @@ import {
 
 export default function WeatherApp() {
   const [city, setCity] = useState("");
-//   new
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🌦️ Weather App</Text>
