@@ -15,8 +15,6 @@ export default function WeatherApp() {
     <View style={styles.container}>
       {/* Title */}
       <Text style={styles.title}>🌦️ Weather App</Text>
-
-      {/* Input Box */}
       <TextInput
         style={styles.input}
         placeholder="Enter city name..."
