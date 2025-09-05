@@ -23,8 +23,6 @@ export default function WeatherApp() {
         value={city}
         onChangeText={setCity}
       />
-
-      {/* Search Button */}
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Get Weather</Text>
       </TouchableOpacity>
