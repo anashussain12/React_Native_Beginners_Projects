@@ -29,7 +29,6 @@ export default function WeatherApp() {
         <Text style={styles.buttonText}>Get Weather</Text>
       </TouchableOpacity>
 
-      {/* Weather Card */}
       <View style={styles.card}>
         <Text style={styles.cityName}>Islamabad</Text>
         <Text style={styles.temperature}>27°C</Text>
