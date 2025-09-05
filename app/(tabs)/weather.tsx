@@ -13,7 +13,6 @@ export default function WeatherApp() {
 
   return (
     <View style={styles.container}>
-      {/* Title */}
       <Text style={styles.title}>🌦️ Weather App</Text>
       <TextInput
         style={styles.input}
