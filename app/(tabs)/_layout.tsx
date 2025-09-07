@@ -89,6 +89,31 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      <Tabs.Screen
+        name="quiz"
+        options={{
+          title: "Quiz App",
+          tabBarIcon: ({ color, focused }) => (
+            <AnimatedIcon
+              name={focused ? "notes" : "notes-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="moiveapp"
+        options={{
+          title: "AnasFlix",
+          tabBarIcon: ({ color, focused }) => (
+            <AnimatedIcon
+              name={focused ? "notes" : "notes-outline"}
+              color={color}
+            />
+          ),
+        }}
+      />
     </Tabs>
   );
 }

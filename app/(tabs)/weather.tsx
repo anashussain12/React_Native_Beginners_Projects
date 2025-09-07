@@ -9,7 +9,7 @@ import {
 } from "react-native";
 
 export default function WeatherApp() {
-  const API_KEY = "cd3e125a72d1e30d43fc99255a18f3af"; 
+  const API_KEY = "cd3e125a72d1e30d43fc99255a18f3af";
 
   const [city, setCity] = useState(""); // user input
   const [weather, setWeather] = useState<any>(null);
