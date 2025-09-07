@@ -1,33 +1,65 @@
 // WeatherApp.tsx
 import React, { useState } from "react";
 import {
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function WeatherApp() {
-  const [city, setCity] = useState("");
+  const API_KEY = "cd3e125a72d1e30d43fc99255a18f3af"; 
+
+  const [city, setCity] = useState(""); // user input
+  const [weather, setWeather] = useState<any>(null);
+
+  const getWeather = async () => {
+    try {
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      );
+      const data = await response.json();
+
+      if (data.cod === 200) {
+        setWeather({
+          name: data.name,
+          temp: data.main.temp,
+          description: data.weather[0].main,
+        });
+      } else {
+        setWeather(null);
+        alert("City not found!");
+      }
+    } catch (error) {
+      alert("Something went wrong!");
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🌦️ Weather App</Text>
+
+      {/* Input */}
       <TextInput
         style={styles.input}
         placeholder="Enter city name..."
         value={city}
         onChangeText={setCity}
       />
-      <TouchableOpacity style={styles.button}>
+
+      {/* Button */}
+      <TouchableOpacity style={styles.button} onPress={getWeather}>
         <Text style={styles.buttonText}>Get Weather</Text>
       </TouchableOpacity>
-
-      <View style={styles.card}>
-        <Text style={styles.cityName}>Islamabad</Text>
-        <Text style={styles.temperature}>27°C</Text>
-        <Text style={styles.description}>☁️ Cloudy</Text>
-      </View>
+      {/* Weather Card */}
+      {weather && (
+        <View style={styles.card}>
+          <Text style={styles.cityName}>{weather.name}</Text>
+          <Text style={styles.temperature}>{weather.temp}°C</Text>
+          <Text style={styles.description}>{weather.description}</Text>
+        </View>
+      )}
     </View>
   );
 }
